@@ -10,7 +10,7 @@
 
 
 @media screen and (max-width: 320px) {
-  .header {
-   margin: 28pх auto 42px;
+	.header {
+		margin: 28px auto 42px;
   }
 }

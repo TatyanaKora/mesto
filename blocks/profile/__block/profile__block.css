@@ -1,5 +1,5 @@
 .profile__block {
-  max-width: calc(100%-169px);
+  max-width: calc(100% - 169px);
   margin: 0;
   padding: 0;
   display: flex;
