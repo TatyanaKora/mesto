@@ -1,0 +1,8 @@
+.photo-grid__box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 0 0 10px 10px;
+}

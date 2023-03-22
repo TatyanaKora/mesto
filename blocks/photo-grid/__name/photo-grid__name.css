@@ -1,0 +1,12 @@
+.photo-grid__name {
+  font-family: 'Inter';
+  font-style: normal;
+  max-width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
+  margin: 25px 0 31px 21px;
+}
