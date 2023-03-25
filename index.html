@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./page/index.css">
+  <link rel="stylesheet" href="./pages/index.css">
   <title>Mesto</title>
 </head>
 <body class="page">
@@ -19,91 +19,76 @@
 	<div class="profile__info">
 	    <div class="profile__names">
         <h1 class="profile__name">Жак Ив Кусто</h1>
-		 <button type="button" class="button profile__edit"><img src="./image/Vector.png" alt="Кнопка редактировать профиль"></button>
-		</div>
-		<div class="profile__job">
-        <p class="profile__job-text">Исследователь океана</p>
-		</div>
+		 <button type="button" class="profile__edit"></button>
+		 </div>
+		<p class="profile__job-text">Исследователь океана</p>
       </div>
       <button class="profile__add" type="button"></button>
 	</section>
-	
-	 <section class="photo-grid">
-       <div class="photo-grid__card">
-            <img  alt="Карачаевск" class="photo-grid__image" src="./image/img1.jpg">
-            <div class="photo-grid__box">
-              <p class="photo-grid__name">Домбай</p>
-              <div class="photo-grid__likebox">
-                <button type="button" class="photo-grid__like"></button>
-               </div>
+	<div class="photo-grid">
+        <div class="card">
+            <img  alt="Карачаевск" class="card__image" src="./image/img1.jpg">
+            <div class="card__box">
+              <h2 class="card__name">Домбай</h2>
+                <button type="button" class="card__like"></button>
             </div>
           </div>
-		<div class="photo-grid__card">
-            <img  alt="Гора Эльбрус" class="photo-grid__image" src="./image/img2.jpg">
-            <div class="photo-grid__box">
-              <p class="photo-grid__name">Карачаево-Черкессия</p>
-              <div class="photo-grid__likebox">
-                <button type="button" class="photo-grid__like"></button>
-               </div>
+		<div class="card">
+            <img  alt="Гора Эльбрус" class="card__image" src="./image/img2.jpg">
+            <div class="card__box">
+              <h2 class="card__name">Карачаево-Черкессия</h2>
+                <button type="button" class="card__like"></button>
             </div>
           </div>
-		  <div class="photo-grid__card">
-            <img  alt="Домбай" class="photo-grid__image" src="./image/img3.jpg">
-            <div class="photo-grid__box">
-              <p class="photo-grid__name">Гора Эльбрус</p>
-              <div class="photo-grid__likebox">
-                <button type="button" class="photo-grid__like"></button>
-               </div>
+		<div class="card">
+            <img  alt="Домбай" class="card__image" src="./image/img3.jpg">
+            <div class="card__box">
+              <h2 class="card__name">Гора Эльбрус</h2>
+                <button type="button" class="card__like"></button>
             </div>
           </div>
-		  <div class="photo-grid__card">
-            <img  alt="Гора Эльбрус" class="photo-grid__image" src="./image/img2.jpg">
-            <div class="photo-grid__box">
-              <p class="photo-grid__name">Карачаевск</p>
-              <div class="photo-grid__likebox">
-                <button type="button" class="photo-grid__like"></button>
-               </div>
+		<div class="card">
+            <img  alt="Гора Эльбрус" class="card__image" src="./image/img2.jpg">
+            <div class="card__box">
+              <h2 class="card__name">Карачаевск</h2>
+                <button type="button" class="card__like"></button>
             </div>
           </div>
-		  <div class="photo-grid__card">
-            <img  alt="Домбай" class="photo-grid__image" src="./image/img3.jpg">
-            <div class="photo-grid__box">
-              <p class="photo-grid__name">Гора Эльбрус</p>
-              <div class="photo-grid__likebox">
-                <button type="button" class="photo-grid__like"></button>
-               </div>
+		<div class="card">
+            <img  alt="Домбай" class="card__image" src="./image/img3.jpg">
+            <div class="card__box">
+              <h2 class="card__name">Гора Эльбрус</h2>
+              <button type="button" class="card__like"></button>
             </div>
           </div>
-		   <div class="photo-grid__card">
-            <img  alt="Карачаево-Черкессия" class="photo-grid__image" src="./image/img1.jpg">
-            <div class="photo-grid__box">
-              <p class="photo-grid__name">Домбай</p>
-              <div class="photo-grid__likebox">
-                <button type="button" class="photo-grid__like"></button>
-               </div>
-            </div>
+		<div class="card">
+            <img  alt="Карачаево-Черкессия" class="card__image" src="./image/img1.jpg">
+            <div class="card__box">
+              <h2 class="card__name">Домбай</h2>
+              <button type="button" class="card__like"></button>
+              </div>
           </div>
-        </section>
+      </div>
   </main>
 
   <footer class="footer">
     <p class="footer__author">&copy;2023 Mesto Russia /Tatyana Kora/</p>
   </footer>
   
-   <div class="popup popup_open">
+   <div class="popup">
      <div class="popup__container">
+	 <button type="button" class="popup__close"></button>
       <form name="popupedit" class="popup__edit" novalidate>
-     <button type="button" class="popup__close"></button>
-     <fieldset class="popup__fieldset">
+      <fieldset class="popup__fieldset">
 	 <h2 class="popup__title">Редактировать профиль</h2>
-	 <p><input name="profilename" placeholder="Имя" class="popup__input popup__input_name" required minlength="2" maxlength="40" ></p>
-	 <p><input name="profilejob" placeholder="Профессия" class="popup__input popup__input_job" required minlength="2" maxlength="40"></p>
-	 <button type="submit" class="popup__save">Сохранить</button>
+	 <input name="profilename" placeholder="Имя" class="popup__input popup__input_name" required minlength="2" maxlength="40">
+	 <input name="profilejob" placeholder="Профессия" class="popup__input popup__input_job" required minlength="2" maxlength="40">
 	 </fieldset>
+	 <button type="submit" class="popup__save">Сохранить</button>
 	   </form>
 	 </div>
     </div>
    
-   <script src="./script/index.js"></script>
+   <script src="./scripts/index.js"></script>
 </body>
 </html>

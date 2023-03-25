@@ -9,9 +9,10 @@
  }
 
 
-@media all and (max-width: 320px) {
+@media all and (max-width: 1050px) {
   .profile__info {
 	flex-direction: column;
+	justify-content: center;
     min-width: 282px;
 	width: 100%;
 	margin: 22px auto 36px;

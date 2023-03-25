@@ -1,20 +1,32 @@
 .profile__add {
+  display: block;
   width: 150px;
   min-height: 50px;
   border: 2px solid #ffffff;
-  background-color: #000000;
+  background: transparent;
   border-radius: 2px;
   background-image: url('../../../image/add.svg');
   background-repeat: no-repeat;
   background-position: center;
+  background-size: auto;
   position: relative;
   margin-left: auto;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 1s linear;
+}
+.profile__add:hover{
+    opacity: 0.6;
+}
+
+@media all and (max-width: 1050px) {
+  .profile__add {
+    margin-right: auto;
+}
 }
 
 @media all and (max-width: 320px) {
   .profile__add {
     width: 100%;
-    margin: 0 auto;
-    padding: 0;
-  }
+}
 }

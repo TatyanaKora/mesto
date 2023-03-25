@@ -1,4 +1,4 @@
-.photo-grid__box {
+.card__box {
   width: 100%;
   display: flex;
   justify-content: space-between;

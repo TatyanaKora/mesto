@@ -1,15 +1,18 @@
 .profile__job-text {
-  font-family: 'Inter';
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
-  text-align: left;
-  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 336px;
+  margin: 16px 0 0 30px;
   padding: 0;
 }
 
-@media all and (max-width: 320px) {
+@media all and (max-width: 1050px) {
   .profile__job-text {
    font-size: 14px;
    line-height: 17px;

@@ -11,8 +11,3 @@
   visibility: hidden;
   z-index: 4;
  }
- 
-.popup.active {
-  visibility: visible;
-  opacity: 1;
-}

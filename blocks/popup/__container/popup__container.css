@@ -2,8 +2,8 @@
   display: flex;
   position: relative;
   flex-direction: column;
+  box-sizing: border-box;
   width: 430px;
-  height: 330px;
   margin: 0 auto;
   padding: 36px;
   background-color: #FFFFFF;
@@ -13,10 +13,9 @@
   }
 
 
-@media all and (max-width: 320  px) {
+@media all and (max-width: 800px) {
   .popup__container {
     max-width: calc(100% - 2*19px);
-	height: 322px;
     padding: 22px;
   }
 }
