@@ -17,13 +17,14 @@
   transition: opacity 1s linear;
 }
 .popup__save:hover{
-    opacity: 0.6;
+  opacity: 0.8;
 }
 
 @media all and (max-width: 800px) {
   .popup__save {
     font-size: 14px;
     line-height: 17px;
-	height: 48px;
+	height: 46px;
+	margin-top: 15px;
   }
 }

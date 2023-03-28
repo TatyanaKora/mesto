@@ -1,15 +1,17 @@
 .profile__avatar-block {
-  margin: 0;
+  margin: 0 26px 0 0;
   display: flex;
-  align-items: center;
+  align-self: stretch;
   padding: 0;
-  height: 128px;
-  width: 128px;
+  height: 100%;
+  width: 120px;
 }
 
 
 @media all and (max-width: 1050px) {
   .profile__avatar-block {
 	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
   }
 }

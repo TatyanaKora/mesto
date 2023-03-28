@@ -21,7 +21,9 @@
 
 @media all and (max-width: 1050px) {
   .profile__add {
+	max-width: 282px;
     margin-right: auto;
+	background-size: 17px 17px;
 }
 }
 

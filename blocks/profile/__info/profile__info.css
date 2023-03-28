@@ -1,20 +1,19 @@
 .profile__info {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: flex-start;
   flex-wrap: wrap;
-  align-items: center;
-  max-width: 336px;
-  margin: 22px 0 25px 0;
+  min-width: 336px;
+  margin: 17px 0 20px 0;
   padding: 0;
  }
 
 
 @media all and (max-width: 1050px) {
   .profile__info {
-	flex-direction: column;
-	justify-content: center;
+	align-items: center;
     min-width: 282px;
 	width: 100%;
-	margin: 22px auto 36px;
+	margin: 26px auto 31px;
   }
 }
