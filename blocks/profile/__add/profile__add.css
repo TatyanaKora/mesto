@@ -15,20 +15,21 @@
   cursor: pointer;
   transition: opacity 1s linear;
 }
-.profile__add:hover{
-    opacity: 0.6;
+
+.profile__add:hover {
+  opacity: 0.6;
 }
 
 @media all and (max-width: 1050px) {
   .profile__add {
-	max-width: 282px;
+    max-width: 282px;
     margin-right: auto;
-	background-size: 17px 17px;
-}
+    background-size: 17px 17px;
+  }
 }
 
 @media all and (max-width: 320px) {
   .profile__add {
     width: 100%;
-}
+  }
 }

@@ -7,11 +7,12 @@
   color: #545454;
   margin: 0;
   padding: 0;
+  text-align: left;
 }
 
 @media all and (max-width: 320px) {
   .footer__author {
-   font-size: 14px;
-   line-height: 17px;
+    font-size: 14px;
+    line-height: 17px;
   }
 }
