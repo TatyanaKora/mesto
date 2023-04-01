@@ -9,7 +9,7 @@
   overflow: hidden;
   max-width: 336px;
   margin: 0;
-  padding: 16px 0 0 0;
+  padding: 8px 0 0 0;
 }
 
 @media all and (max-width: 1050px) {
@@ -18,6 +18,5 @@
     line-height: 17px;
     text-align: center;
     max-width: 189px;
-    padding-top: 14px;
   }
 }
