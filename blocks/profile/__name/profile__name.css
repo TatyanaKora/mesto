@@ -14,10 +14,9 @@
 
 @media all and (max-width: 1050px) {
   .profile__name {
-    max-width: 189px;
+    max-width: 235px;
     font-size: 27px;
     line-height: 33px;
-    margin-left: 46px;
     text-align: center;
   }
 }

@@ -12,7 +12,6 @@
   line-height: 22px;
   padding: 0;
   text-align: center;
-  margin-top: 18px;
   cursor: pointer;
   transition: opacity 1s linear;
 }
@@ -23,9 +22,10 @@
 
 @media all and (max-width: 800px) {
   .popup__save {
+	height: 46px;
     font-size: 14px;
     line-height: 17px;
     height: 46px;
-    margin-top: 15px;
+	margin-top: 15px;
   }
 }
