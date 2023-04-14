@@ -10,4 +10,6 @@
   justify-content: center;
   visibility: hidden;
   z-index: 4;
+  opacity: 0;
+  transition: visibility .8s, opacity .5s linear;
 }

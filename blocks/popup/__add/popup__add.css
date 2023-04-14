@@ -1,0 +1,4 @@
+.popup__add {
+  display: flex;
+  flex-direction: column;
+}
