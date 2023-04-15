@@ -27,16 +27,16 @@
       <button class="profile__add" type="button"></button>
     </section>
     <section class="photo-grid">
-	 <template id="template-card">
-    <div class="card">
-	<button type="button" class="card__delete" aria-label="Удалить"></button>
-      <img alt="" class="card__image" src="#">
-        <div class="card__box">
-          <h2 class="card__name"></h2>
-          <button type="button" class="card__like" aria-label="Like"></button>
+      <template id="template-card">
+        <div class="card">
+          <button type="button" class="card__delete" aria-label="Удалить"></button>
+          <img alt="" class="card__image" src="#">
+          <div class="card__box">
+            <h2 class="card__name"></h2>
+            <button type="button" class="card__like" aria-label="Like"></button>
+          </div>
         </div>
-      </div>
-  </template>
+      </template>
     </section>
   </main>
 
@@ -59,37 +59,30 @@
       </form>
     </div>
   </div>
-  
+
   <div class="popup popup_type_mesto">
     <div class="popup__container">
       <button type="button" class="popup__close popup__close_add" aria-label="Закрыть"></button>
       <form class="popup__add" name="popupadd">
         <fieldset class="popup__fieldset">
           <h2 class="popup__title">Новое место</h2>
-            <input class="popup__input popup__input_type_mesto" name="imagename" type="text"
-              placeholder="Название" minlength="1" maxlength="30" required>
-            <input class="popup__input popup__input_type_url" name="imagelink" type="url"
-              placeholder="Ссылка на картинку" required>
+          <input class="popup__input popup__input_type_mesto" name="imagename" type="text" placeholder="Название"
+            minlength="1" maxlength="30" required>
+          <input class="popup__input popup__input_type_url" name="imagelink" type="url" placeholder="Ссылка на картинку"
+            required>
         </fieldset>
         <button type="submit" class="popup__save popup__save_type_mesto">Создать</button>
       </form>
     </div>
   </div>
-  <section class="popup popup__card">
-        <div class="popup__card-container">
-            <img class="popup__card-image" src="#" alt="">
-            <p class="popup__card-title"></p>
-            <button type="button" class="popup__close popup__close-card"></button>
-        </div>
-    </section>
-	<section class="popup popup__photo">
-			<div class="popup__photo-open">
-				<button class="popup__close popup__close-photo" type="button">
-				</button>
-				<img class="popup__photo-img">
-				<p class="popup__photo-name"></p>
-			</div>
-		</section>
+  <section class="popup popup__photo">
+    <div class="popup__photo-open">
+      <button class="popup__close popup__close_photo" type="button">
+      </button>
+      <img class="popup__photo-img">
+      <p class="popup__photo-name"></p>
+    </div>
+  </section>
   <script src="./scripts/index.js"></script>
 </body>
 
