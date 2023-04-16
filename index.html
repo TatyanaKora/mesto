@@ -45,8 +45,8 @@
   </footer>
 
   <div class="popup popup_type_edit">
-    <div class="popup__container">
-      <button type="button" class="popup__close" aria-label="Закрыть"></button>
+    <div class="popup__container popup__container_type_list">
+      <button type="button" class="popup__close popup__close_edit" aria-label="Закрыть"></button>
       <form name="popupedit" class="popup__edit">
         <h2 class="popup__title">Редактировать профиль</h2>
         <fieldset class="popup__fieldset">
@@ -61,7 +61,7 @@
   </div>
 
   <div class="popup popup_type_mesto">
-    <div class="popup__container">
+    <div class="popup__container popup__container_type_list">
       <button type="button" class="popup__close popup__close_add" aria-label="Закрыть"></button>
       <form class="popup__add" name="popupadd">
         <fieldset class="popup__fieldset">
@@ -76,13 +76,14 @@
     </div>
   </div>
   <section class="popup popup_type_photo">
-    <div class="popup__photo-open">
+    <div class="popup__container popup__container_type_photo">
       <button class="popup__close popup__close_photo" type="button">
       </button>
       <img class="popup__photo-img">
       <p class="popup__photo-name"></p>
     </div>
   </section>
+  <script src="./scripts/constants.js "></script>
   <script src="./scripts/index.js"></script>
 </body>
 

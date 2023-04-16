@@ -1,38 +1,10 @@
-//Массив для загрузки карточек
-
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 //переменные
-let popup = document.querySelector('.popup');
+
 let editPopup = document.querySelector('.popup_type_edit');
 let mestoPopup = document.querySelector('.popup_type_mesto');
+let photoPopup = document.querySelector('.popup_type_photo');
 let openButton = document.querySelector('.profile__edit');
-let closeButton = document.querySelector('.popup__close');
+let closeEditButton = document.querySelector('.popup__close_edit');
 let closeAddButton = document.querySelector('.popup__close_add');
 let closePhotoButton = document.querySelector('.popup__close_photo');
 let formEdit = document.querySelector('.popup__edit');
@@ -44,11 +16,10 @@ let addButton = document.querySelector('.profile__add');
 let formAdd = document.querySelector('.popup__add');
 let mestoInput = document.querySelector('.popup__input_type_mesto');
 let linkInput = document.querySelector('.popup__input_type_url');
-const likeButton = document.querySelectorAll('.card__like');
-const delButton = document.querySelectorAll('.card__delete');
+const likeButtonList = document.querySelectorAll('.card__like');
+const delButtonList = document.querySelectorAll('.card__delete');
 const saveButton = document.querySelector('.popup__save_type_mesto');
 const templateConteiner = document.querySelector('.photo-grid');
-let photoPopup = document.querySelector('.popup_type_photo');
 const elementPhoto = document.querySelector('.popup__photo-img');
 const elementName = document.querySelector('.popup__photo-name');
 const cardElement = document.querySelector('.card');
@@ -76,7 +47,7 @@ function openEditPopup() {
 openButton.addEventListener('click', openEditPopup);
 
 //прослушиватель на кнопку + закрываем окно редактирования профиля
-closeButton.addEventListener('click', function closeEditPopup() {
+closeEditButton.addEventListener('click', function closeEditPopup() {
   closePopup(editPopup);
 });
 
@@ -92,8 +63,8 @@ formEdit.addEventListener('submit', handleFormSubmit);
 //откроем окно для загрузки карточки
 function openAddPopup() {
   openPopup(mestoPopup);
-  mestoInput.value = name;
-  linkInput.value = name;
+  //mestoInput.value = name;
+  //linkInput.value = name;
 }
 //вешаем прослушиватель на кнопку, чтобы окно открывалось при нажатии
 addButton.addEventListener('click', openAddPopup);
@@ -126,7 +97,7 @@ function runCard(link, name) {
 //запускаем массив, выгружаем карточки на страницу
 initialCards.forEach(function (item) {
   let card = runCard(item.link, item.name);
-  templateConteiner.prepend(card);
+  templateConteiner.append(card);
 });
 
 //сабмит - новая карточка
