@@ -47,13 +47,15 @@
   <div class="popup popup_type_edit">
     <div class="popup__container popup__container_type_list">
       <button type="button" class="popup__close popup__close_edit" aria-label="Закрыть"></button>
-      <form name="popupedit" class="popup__edit">
+      <form name="popupedit" class="popup__form popup__form_type_edit" novalidate>
         <h2 class="popup__title">Редактировать профиль</h2>
         <fieldset class="popup__fieldset">
           <input name="profilename" placeholder="Имя" type="text" class="popup__input popup__input_type_name" required
             minlength="2" maxlength="40">
+          <span class="popup__input-error popup__input-error_type_name"" id=" titleInput-error"></span>
           <input name="profilejob" placeholder="Профессия" type="text" class="popup__input popup__input_type_job"
-            required minlength="2" maxlength="40">
+            required minlength="2" maxlength="200">
+          <span class="popup__input-error popup__input-error_type_job" id="jobInput-error"></span>
         </fieldset>
         <button type="submit" class="popup__save">Сохранить</button>
       </form>
@@ -63,13 +65,15 @@
   <div class="popup popup_type_mesto">
     <div class="popup__container popup__container_type_list">
       <button type="button" class="popup__close popup__close_add" aria-label="Закрыть"></button>
-      <form class="popup__add" name="popupadd">
+      <form class="popup__form popup__form_type_add" name="popupadd" novalidate>
         <fieldset class="popup__fieldset">
           <h2 class="popup__title">Новое место</h2>
           <input class="popup__input popup__input_type_mesto" name="imagename" type="text" placeholder="Название"
             minlength="1" maxlength="30" required>
+          <span class="popup__input-error" id="imageName-error"></span>
           <input class="popup__input popup__input_type_url" name="imagelink" type="url" placeholder="Ссылка на картинку"
             required>
+          <span class="popup__input-error" id="linkInput-error"></span>
         </fieldset>
         <button type="submit" class="popup__save popup__save_type_mesto">Создать</button>
       </form>
@@ -85,6 +89,7 @@
   </section>
   <script src="./scripts/constants.js "></script>
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/validate.js"></script>
 </body>
 
 </html>
