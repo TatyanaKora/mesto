@@ -1,21 +1,23 @@
-//какие переменные вложены в функцию
+//переменная
 const enableValidation = {
-	formSelector: '.popup__form',
-	inputSelector: '.popup__input',
-	submitButtonSelector: '.popup__save',
-	inactiveButtonClass: 'popup__save_disable',
-	inputErrorClass: 'popup__input_error',
-	errorClass: 'popup__input-error_active'
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__save',
+  inactiveButtonClass: 'popup__save_disable',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error_active'
 };
-  //делала по тренажерам
-//1. эта функция находит ошибку в инпуте и выводит сообщения об ошибке
+
+//делала по образцу в тренажёру валидация нескольких полей и форм
+//функция находит ошибки, включает подчеркивание инпута красным и выводит сообщения
 const showError = (formElement, inputElement, errorMessage, inputErrorClass, errorClass) => {
-	const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+	const errorElement = formElement.querySelector(`#${inputElement.id}-error`);//прописала id в span
 	inputElement.classList.add(inputErrorClass);
 	errorElement.textContent = errorMessage;
 	errorElement.classList.add(errorClass);
 };
-//2. функция, обратная 1
+
+//функция, обратная первой
 const hideError = (formElement, inputElement, inputErrorClass, errorClass) => {
 	const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
 	inputElement.classList.remove(inputErrorClass);
@@ -23,56 +25,51 @@ const hideError = (formElement, inputElement, inputErrorClass, errorClass) => {
 	errorElement.textContent = '';
 };
 
-//3. переключает функции 1 и 2 в зависимости от наличия ошибки
-const checkInputValidity = (formElement, inputElement, { inputErrorClass, errorClass }) => {
-	if (!inputElement.validity.valid) {
+//переключает первые две функции в зависимости от результатов валидации
+const inputValidity = (formElement, inputElement, { inputErrorClass, errorClass }) => {
+	if (!inputElement.validity.valid) { //если не соблюдается валидации, то включается
 		showError(formElement, inputElement, inputElement.validationMessage, inputErrorClass, errorClass);
-	} else {
+	} else {//иначе включается
 		hideError(formElement, inputElement, inputErrorClass, errorClass);
 	}
 };
-
-// 4. проверка на условия валидации 
-const InvalidInput = (inputList) => {
+//проверяем валидацию на всех инпутах
+const invalidInput = (inputList) => {
 	return inputList.some((inputElement) => {
 		return !inputElement.validity.valid;
 	})
 };
-
-
-//собираем все инпуты в разметке в массив и связываем активность 
+//неактивная кнопка
+const disableSaveButton = (buttonElement, inactiveButtonClass) => {
+	buttonElement.classList.add(inactiveButtonClass);
+	buttonElement.setAttribute('disable', true);
+}
+//активная кнопка
+const activeSaveButton = (buttonElement, inactiveButtonClass) => {
+	buttonElement.classList.remove(inactiveButtonClass);
+	buttonElement.removeAttribute('disable', true);
+}
+//переключает кнопки с активной на неактивную по результатам валидации
+const toggleButtonState = (inputList, buttonElement, inactiveButtonClass) => {
+	if (invalidInput(inputList)) {
+		disableSaveButton(buttonElement, inactiveButtonClass);
+	} else {
+		activeSaveButton(buttonElement, inactiveButtonClass);
+	}
+};
+//связываем кнопку с результатами валидации
 setEventListeners = (formElement, { inputSelector, submitButtonSelector, inactiveButtonClass, ...rest }) => {
 	const inputList = Array.from(formElement.querySelectorAll(inputSelector));
-	const submitButton = formElement.querySelector(submitButtonSelector);
-	toggleButtonState(inputList, submitButton, inactiveButtonClass);
+	const buttonElement = formElement.querySelector(submitButtonSelector);
+	toggleButtonState(inputList, buttonElement, inactiveButtonClass);
 	inputList.forEach((inputElement) => {
 		inputElement.addEventListener('input', () => {
-			checkInputValidity(formElement, inputElement, rest);
-			toggleButtonState(inputList, submitButton, inactiveButtonClass);
+			inputValidity(formElement, inputElement, rest);
+			toggleButtonState(inputList, buttonElement, inactiveButtonClass);
 		});
 	});
 }
-// кнопке присваивается неактивное состояние
-const disableSubmitButton = (submitButton, inactiveButtonClass) => {
-	submitButton.classList.add(inactiveButtonClass);
-	submitButton.setAttribute('disabled', true);
-}
-
-//кнопка становится активной
-const activeSubmitButton = (submitButton, inactiveButtonClass) => {
-	submitButton.classList.remove(inactiveButtonClass);
-	submitButton.removeAttribute('disabled', true);
-}
-
-//переключает активность неактивность кнопки в зависимости от результатов валидации
-const toggleButtonState = (inputList, submitButton, inactiveButtonClass) => {
-	if (InvalidInput(inputList)) {
-		disableSubmitButton(submitButton, inactiveButtonClass);
-	} else {
-		activeSubmitButton(submitButton, inactiveButtonClass);
-	}
-};
-
+//запускаем валидацию на все формы, которые есть в разметке
 const enableValidationList = ({ formSelector, ...rest }) => {
 	const formList = Array.from(document.querySelectorAll('.popup__form'));
 
@@ -80,4 +77,5 @@ const enableValidationList = ({ formSelector, ...rest }) => {
 		setEventListeners(formElement, rest);
 	});
 }
+
 enableValidationList(enableValidation);

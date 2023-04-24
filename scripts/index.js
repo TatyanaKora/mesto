@@ -85,7 +85,6 @@ function runCard(link, name) {
   const cardElement = gridTemplate.querySelector('.card').cloneNode(true);
   const likeCardButton = cardElement.querySelector('.card__like');
   const cardPhoto = cardElement.querySelector('.card__image');
-
   cardPhoto.src = link;
   cardPhoto.setAttribute('alt', name);
   cardElement.querySelector('.card__name').textContent = name;
@@ -107,7 +106,7 @@ initialCards.forEach(function (item) {
 //загружает новую карточку
 function newCardSubmit(event) {
   event.preventDefault();
-  const newCard = runCard(linkInput.value, mestoInput.value);
+  const newCard = runCard(linkInputMestoPopup.value, mestoInputMestoPopup.value);
   templateConteinerPhotoGrid.prepend(newCard);
   closePopup(mestoPopup);
 }
