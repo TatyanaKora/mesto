@@ -1,14 +1,14 @@
 //переменная
-const enableValidation = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__save',
-  inactiveButtonClass: 'popup__save_disable',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-error_active'
+const validationConfig = {
+	formSelector: '.popup__form',
+	inputSelector: '.popup__input',
+	submitButtonSelector: '.popup__save',
+	inactiveButtonClass: 'popup__save_disable',
+	inputErrorClass: 'popup__input_type_error',
+	errorClass: 'popup__input-error_active'
 };
 
-//делала по образцу в тренажёру валидация нескольких полей и форм
+//делала по образцу к тренажёру валидация нескольких полей и форм
 //функция находит ошибки, включает подчеркивание инпута красным и выводит сообщения
 const showError = (formElement, inputElement, errorMessage, inputErrorClass, errorClass) => {
 	const errorElement = formElement.querySelector(`#${inputElement.id}-error`);//прописала id в span
@@ -70,7 +70,7 @@ setEventListeners = (formElement, { inputSelector, submitButtonSelector, inactiv
 	});
 }
 //запускаем валидацию на все формы, которые есть в разметке
-const enableValidationList = ({ formSelector, ...rest }) => {
+const enableValidation = ({ formSelector, ...rest }) => {
 	const formList = Array.from(document.querySelectorAll('.popup__form'));
 
 	formList.forEach((formElement) => {
@@ -78,4 +78,4 @@ const enableValidationList = ({ formSelector, ...rest }) => {
 	});
 }
 
-enableValidationList(enableValidation);
+enableValidation(validationConfig);
