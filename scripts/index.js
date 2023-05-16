@@ -1,13 +1,45 @@
+//import { Card } from "./Card.js";
+import { FormValidator } from './FormValidator.js';
+import { сonfig } from './FormValidator.js';
+
+//данные для массива 
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
+
 //переменные
 const popupList = document.querySelectorAll('.popup');
-
 const popupEditProfile = document.querySelector('.popup_type_edit');
-const closeEditPopupButton = document.querySelector('.popup__close_edit');
-const formEditPopup = document.querySelector('.popup__form_type_edit');
-const nameInputEditPopup = document.querySelector('.popup__input_type_name');
-const jobInputEditPopup = document.querySelector('.popup__input_type_job');
+const editPopupForm = popupEditProfile.querySelector('.popup__form');
+const jobInputEditPopup = popupEditProfile.querySelector('.popup__input_type_job');
+const nameInputEditPopup = popupEditProfile.querySelector('.popup__input_type_name');
+const closeEditPopupButton = popupEditProfile.querySelector('.popup__close_edit');
 
 const popupAddCard = document.querySelector('.popup_type_mesto');
+const addPopupForm = popupAddCard.querySelector('.popup__form');
 const closeAddPopupButton = document.querySelector('.popup__close_add');
 const formAddCardPopup = document.querySelector('.popup__form_type_add');
 const mestoInputAddPopup = document.querySelector('.popup__input_type_mesto');
@@ -31,6 +63,14 @@ const likeButtonCardList = document.querySelectorAll('.card__like');
 const delButtonCardList = document.querySelectorAll('.card__delete');
 const delCardElement = document.querySelector('.card__delete');
 const imageCardElement = document.querySelector('.card__image');
+
+
+const editPopupFormValidate = new FormValidator(сonfig, editPopupForm);
+editPopupFormValidate.enableValidation();
+
+const addPopupFormValidate = new FormValidator(сonfig, addPopupForm);
+addPopupFormValidate.enableValidation();
+
 
 //функции
 //функция отркытия поп-апов
@@ -74,8 +114,7 @@ function submitEditProfileForm(evt) {
   jobAuthorProfile.textContent = jobInputEditPopup.value;
   closePopup(popupEditProfile);
 }
-formEditPopup.addEventListener('submit', submitEditProfileForm);
-
+editPopupForm.addEventListener('submit', submitEditProfileForm);
 
 //откроет поп-ап для загрузки новой карточки
 function openPopupAddCard() {
@@ -105,7 +144,7 @@ initialCards.forEach(function (item) {
   templateConteinerPhotoGrid.append(card);
 });
 
-//загружает новую карточку
+//загружает новую карточку 
 function submitAddCardForm(event) {
   event.preventDefault();
   const newCard = createCard(linkInputAddPopup.value, mestoInputAddPopup.value);
@@ -117,10 +156,11 @@ function submitAddCardForm(event) {
   event.target.reset();
 };
 
+//оставить
 formAddCardPopup.addEventListener('submit', submitAddCardForm);
 
 
-//открываем картинку в полный экран
+//в кард картинку в полный экран
 function openPhoto(evt) {
   openPopup(photoPopup);
   elementPhotoPopup.src = evt.target.closest('.card__image').src;
@@ -133,25 +173,25 @@ function openPhoto(evt) {
 closePhotoPopupButton.addEventListener('click', function closePhotoPopup() {
   closePopup(photoPopup);
 });
-//вешаем прослушиватель на кнопку + , чтобы открыть поп-ап "новое место"
+//оставить вешаем прослушиватель на кнопку + , чтобы открыть поп-ап "новое место"
 addButtonProfile.addEventListener('click', () => {
   openPopup(popupAddCard)
 });
 
-//закроем поп-ап "новое место" при нажатии на крестик
+//оставить закроем поп-ап "новое место" при нажатии на крестик
 closeAddPopupButton.addEventListener('click', function closePopupAddCard() {
   closePopup(popupAddCard,);
 });
 
-//закроем поп-апы кликом мимо окна (на оврелей)
+//оставить закроем поп-апы кликом мимо окна (на оврелей)
 popupList.forEach((item) => {
   item.addEventListener('click', closeOverleyPopup);
 });
 
-//нажмём на кнопку "редактировать" и откроем поп-ап редактирование профиля 
+//оставить нажмём на кнопку "редактировать" и откроем поп-ап редактирование профиля 
 openEditProfileButton.addEventListener('click', openPopupEditProfile);
 
-// нажмём на крестик и закроем поп-ап редактирования профиля
+//оставить нажмём на крестик и закроем поп-ап редактирования профиля
 closeEditPopupButton.addEventListener('click', function closePopupEditProfile() {
   closePopup(popupEditProfile);
 });
