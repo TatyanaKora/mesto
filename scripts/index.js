@@ -75,12 +75,7 @@ const addPopupFormValidate = new FormValidator(сonfig, addPopupForm);
 addPopupFormValidate.enableValidation();
 
 //*КАРТОЧКИ*
-export const openPhoto = (src, title) => {
-  elementPhotoPopup.src = src;
-  elementNamePhotoPopup.textContent = title;
-  elementPhotoPopup.alt = title;
-  openPopup(photoPopup);
-};
+
 
 //откроет поп-ап для загрузки новой карточки
 function openPopupAddCard() {
