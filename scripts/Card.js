@@ -1,16 +1,47 @@
-//export class Card {
-	//закладываю в конструктор всё, что должно быть в каждой карточке
-  constructor(item, gridTemplate, openPhoto) {
-    this._name = item.name;
-    this._link = item.link;
-    this._gridTemplate = gridTemplate;
-    this._cardImagePopup = cardImagePopup; //картинка в полный размер
-    this._cardElement = this._getTemplate();
-    this._cardImage = this._cardElement.querySelector('.elements__image');
-    this._cardTitle = this._cardElement.querySelector('.elements__card-title');
-    this._deleteButton = this._cardElement.querySelector('.elements__delete-button');
-    this._likeButton = this._cardElement.querySelector('.elements__like-button');
-  }  
-  };
-  
+import { openPhoto } from './index.js'; //импорт данных по поп-апу "открыть фото", он остаётся в основном файле
+
+export class Card {
+    constructor(data, templateSelector) {//в конструктор закладываем все данные по карточкам
+        this._templateSelector = templateSelector;
+        this._cardPhoto = data.link;//взять ссылку из массива
+        this._cardName = data.name; //вхять имя из массива
+        this._cardTemplate = document.querySelector(this._templateSelector);
+        this._templateClone = this._cardTemplate.content.querySelector('.card').cloneNode(true);
+        this._nameCardElement = this._templateClone.querySelector('.card__name');
+        this._imageCardElement = this._templateClone.querySelector('.card__image');
+        this._likeButton = this._templateClone.querySelector('.card__like');
+        this._deleteButton = this._templateClone.querySelector('.card__delete');
+    }
+
+    _likeCard() {
+        this._likeButton.classList.toggle('card__like_active');
+    }
+
+    _deleteCard() {
+        this._templateClone.remove();
+        this._templateClone = null;
+    }
+
+
+    _setCardEventListener() {
+        this._likeButton.addEventListener('click', () => {
+            this._likeCard();
+        })
+        this._deleteButton.addEventListener('click', () => {
+            this._deleteCard();
+        });
+        this._imageCardElement.addEventListener('click', () => {
+            openPhoto(this._imageCardElement.src, this._imageCardElement.alt)
+        });
+    }
+
+    generateCard() {
+        this._nameCardElement.textContent = this._cardName;
+        this._imageCardElement.src = this._cardPhoto;
+        this._imageCardElement.alt = this._cardName;
+
+        this._setCardEventListener();
+
+        return this._templateClone;
+    }
 }
