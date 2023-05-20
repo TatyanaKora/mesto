@@ -1,4 +1,4 @@
-import { openPhoto } from './index.js'; 
+import { openPhoto } from './index.js';
 export class Card {
     constructor(data, templateSelector) {//в конструктор закладываем все данные по карточкам
         this._templateSelector = templateSelector;

@@ -84,118 +84,118 @@ addPopupFormValidate.enableValidation();
 
 
 //*КАРТОЧКИ* 
-export const openPhoto = (src, title) => { 
-  elementPhotoPopup.src = src; 
-  elementNamePhotoPopup.textContent = title; 
-  elementPhotoPopup.alt = title; 
-  openPopup(photoPopup); 
-}; 
+export const openPhoto = (src, title) => {
+  elementPhotoPopup.src = src;
+  elementNamePhotoPopup.textContent = title;
+  elementPhotoPopup.alt = title;
+  openPopup(photoPopup);
+};
 
 //откроет поп-ап для загрузки новой карточки 
-function openPopupAddCard() { 
-  openPopup(popupAddCard); 
-} 
- 
+function openPopupAddCard() {
+  openPopup(popupAddCard);
+}
+
 //обработчик формы, сохраняет данные в карточку 
-function submitAddProfileForm(event) { 
-  event.preventDefault(); 
-  const form = event.target; 
-  const card = { name: mestoInputAddPopup.value, link: linkInputAddPopup.value }; 
-  prependCard(card); 
-  closePopup(popupAddCard); 
-  form.reset(); 
-}; 
-formAddCardPopup.addEventListener('submit', submitAddProfileForm); 
+function submitAddProfileForm(event) {
+  event.preventDefault();
+  const form = event.target;
+  const card = { name: mestoInputAddPopup.value, link: linkInputAddPopup.value };
+  prependCard(card);
+  closePopup(popupAddCard);
+  form.reset();
+};
+formAddCardPopup.addEventListener('submit', submitAddProfileForm);
 
 //загружает новые карточки из модуля Card 
-const createCard = (name, link) => { 
-  const formCard = new Card({ name, link }, templateSelector); 
-  const photoFormCard = formCard.generateCard(); 
-  return photoFormCard; 
-}; 
+const createCard = (name, link) => {
+  const formCard = new Card({ name, link }, templateSelector);
+  const photoFormCard = formCard.generateCard();
+  return photoFormCard;
+};
 //добавляет карточку в начало темплейта 
-const appendCard = ({ name, link }) => { 
-  const photoCard = createCard(name, link); 
-  templateConteinerPhotoGrid.append(photoCard); 
-}; 
+const appendCard = ({ name, link }) => {
+  const photoCard = createCard(name, link);
+  templateConteinerPhotoGrid.append(photoCard);
+};
 
 //добавляет карточку в конец темплейта 
-const prependCard = ({ name, link }) => { 
-  const photoCard = createCard(name, link); 
-  templateConteinerPhotoGrid.prepend(photoCard); 
-}; 
+const prependCard = ({ name, link }) => {
+  const photoCard = createCard(name, link);
+  templateConteinerPhotoGrid.prepend(photoCard);
+};
 //перебираем массив 
-initialCards.forEach(appendCard); 
+initialCards.forEach(appendCard);
 
 //ФУНКЦИИ 
 //функция отркытия поп-апов 
-function openPopup(namePopup) { 
-  namePopup.classList.add('popup_opened'); 
+function openPopup(namePopup) {
+  namePopup.classList.add('popup_opened');
   document.addEventListener('keydown', closeEscPopup); //если нажать на esc, окно закроется 
-} 
+}
 
 //функция закрытия поп-ап 
-function closePopup(namePopup) { 
-  namePopup.classList.remove('popup_opened'); 
-  document.removeEventListener('keydown', closeEscPopup); 
-} 
+function closePopup(namePopup) {
+  namePopup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeEscPopup);
+}
 
 //открывает поп-ап для редактирования профиля 
-function openPopupEditProfile() { 
-  openPopup(popupEditProfile); 
-  nameInputEditPopup.value = nameAuthorProfile.textContent; 
-  jobInputEditPopup.value = jobAuthorProfile.textContent; 
-} 
+function openPopupEditProfile() {
+  openPopup(popupEditProfile);
+  nameInputEditPopup.value = nameAuthorProfile.textContent;
+  jobInputEditPopup.value = jobAuthorProfile.textContent;
+}
 
 //закрывает поп-апы кликом на темный фон (оверлей) 
-function closeOverleyPopup(evt) { 
-  if (evt.target === evt.currentTarget) { 
-    closePopup(evt.currentTarget); 
-  } 
-}; 
+function closeOverleyPopup(evt) {
+  if (evt.target === evt.currentTarget) {
+    closePopup(evt.currentTarget);
+  }
+};
 //закрывает поп-апы нажатием клавиши esc,  
-function closeEscPopup(evt) { 
-  if (evt.key === 'Escape') { 
-    const popupOpen = document.querySelector('.popup_opened'); 
-    closePopup(popupOpen); 
-  } 
-}; 
+function closeEscPopup(evt) {
+  if (evt.key === 'Escape') {
+    const popupOpen = document.querySelector('.popup_opened');
+    closePopup(popupOpen);
+  }
+};
 //отправляет данные из заполненной формы в профиль 
-function submitEditProfileForm(evt) { 
-  evt.preventDefault(); 
-  nameAuthorProfile.textContent = nameInputEditPopup.value; 
-  jobAuthorProfile.textContent = jobInputEditPopup.value; 
-  closePopup(popupEditProfile); 
-} 
-editPopupForm.addEventListener('submit', submitEditProfileForm); 
+function submitEditProfileForm(evt) {
+  evt.preventDefault();
+  nameAuthorProfile.textContent = nameInputEditPopup.value;
+  jobAuthorProfile.textContent = jobInputEditPopup.value;
+  closePopup(popupEditProfile);
+}
+editPopupForm.addEventListener('submit', submitEditProfileForm);
 
- 
+
 //ОБРАБОТЧИКИ СОБЫТИЙ 
 //прослушиватель на кнопку закрыть картинку 
-closePhotoPopupButton.addEventListener('click', function closePhotoPopup() { 
-  closePopup(photoPopup); 
-}); 
+closePhotoPopupButton.addEventListener('click', function closePhotoPopup() {
+  closePopup(photoPopup);
+});
 //вешаем прослушиватель на кнопку + , чтобы открыть поп-ап "новое место" 
-addButtonProfile.addEventListener('click', () => { 
-  openPopup(popupAddCard) 
-}); 
+addButtonProfile.addEventListener('click', () => {
+  openPopup(popupAddCard)
+});
 
- 
+
 
 //закроем поп-ап "новое место" при нажатии на крестик 
-closeAddPopupButton.addEventListener('click', function closePopupAddCard() { 
-  closePopup(popupAddCard,); 
-}); 
+closeAddPopupButton.addEventListener('click', function closePopupAddCard() {
+  closePopup(popupAddCard,);
+});
 
 //закроем поп-апы кликом мимо окна (на оврелей) 
-popupList.forEach((item) => { 
-  item.addEventListener('click', closeOverleyPopup); 
-}); 
+popupList.forEach((item) => {
+  item.addEventListener('click', closeOverleyPopup);
+});
 
 //нажмём на кнопку "редактировать" и откроем поп-ап редактирование профиля  
-openEditProfileButton.addEventListener('click', openPopupEditProfile); 
+openEditProfileButton.addEventListener('click', openPopupEditProfile);
 
 // нажмём на крестик и закроем поп-ап редактирования профиля 
-closeEditPopupButton.addEventListener('click', function closePopupEditProfile() { 
-  closePopup(popupEditProfile); 
+closeEditPopupButton.addEventListener('click', function closePopupEditProfile() {
+  closePopup(popupEditProfile);
 }); 
