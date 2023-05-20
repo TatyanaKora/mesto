@@ -1,5 +1,4 @@
 .popup__form {
-  display: flex;
+  display: block;
   flex-direction: column;
-  justify-content: space-around;
 }

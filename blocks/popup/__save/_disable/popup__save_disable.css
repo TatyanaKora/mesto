@@ -4,5 +4,5 @@
   border: 1px solid #000000;
   border-radius: 10px;
   opacity: 0.15;
-  cursor:auto;
+  pointer-events: none;
 }

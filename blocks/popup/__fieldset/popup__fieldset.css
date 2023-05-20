@@ -1,7 +1,8 @@
 .popup__fieldset {
   padding: 0;
-  margin: 0;
+  margin: auto auto;
   border: 0;
+  display: block;
   position: relative;
   width: 100%;
  

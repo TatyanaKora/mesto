@@ -1,13 +1,3 @@
-//переменная
-export const сonfig = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__save',
-  inactiveButtonClass: 'popup__save_disable',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-error_active'
-};
-
 export class FormValidator {
   constructor(config, formElement) {
     this._inputSelector = config.inputSelector;
