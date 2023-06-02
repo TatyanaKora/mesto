@@ -1,6 +1,5 @@
-import { openPhoto } from './index.js';
-export class Card {
-    constructor(data, templateSelector) {//в конструктор закладываем все данные по карточкам
+export default class Card {
+   constructor(data, templateSelector) {//в конструктор закладываем все данные по карточкам
         this._templateSelector = templateSelector;
         this._cardPhoto = data.link;//взять ссылку из массива
         this._cardName = data.name; //вхять имя из массива
