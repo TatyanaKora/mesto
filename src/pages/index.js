@@ -1,11 +1,11 @@
-import "./pages/index.css";
+import "./index.css";
 
-import Card from "./components/Card.js";
-import FormValidator from './components/FormValidator.js';
-import Section from "./components/Section.js";
-import PopupWithImage from "./components/PopupWithImage.js";
-import PopupWithForm from "./components/PopupWithForm.js";
-import UserInfo from "./components/UserInfo.js";
+import Card from "../components/Card.js";
+import FormValidator from '../components/FormValidator.js';
+import Section from "../components/Section.js";
+import PopupWithImage from "../components/popupWithImage.js";
+import PopupWithForm from "../components/popupWithForm.js";
+import UserInfo from "../components/UserInfo.js";
 
 //данные для массива 
 const initialCards = [
@@ -133,4 +133,6 @@ popupNewEditProfile.setEventListeners();
 //слушатель+
 openEditProfileButton.addEventListener("click", () => {
   popupNewEditProfile.open();
+  nameInputEditPopup.value = nameAuthorProfile.textContent;
+  jobInputEditPopup.value = jobAuthorProfile.textContent;
 });
