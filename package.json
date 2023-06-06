@@ -1,0 +1,30 @@
+{
+  "name": "tatyana_kora",
+  "version": "0.0.1",
+  "description": "1. HTML5 \r 2. CSS3 \r 3. БЭМ \r 4. Адаптивная верстка Grid Layout\r 5. Flexbox-верстка\r 6. Java Script (работа с DOM-структурой, использование функций и переменных в коде и др.)\r 7. Работа с модулями, экспорт/импорт переменных, оптимизация кода, работа с ООП.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve"
+  },
+  "author": "tatyana_kora",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.22.1",
+    "@babel/preset-env": "^7.22.4",
+    "autoprefixer": "^10.4.14",
+    "babel-loader": "^9.1.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.8.1",
+    "cssnano": "^6.0.1",
+    "html-webpack-plugin": "^5.5.1",
+    "mini-css-extract-plugin": "^2.7.6",
+    "postcss-loader": "^7.3.2",
+    "webpack": "^5.85.1",
+    "webpack-cli": "^5.1.3"
+  },
+  "dependencies": {
+    "core-js": "^3.30.2",
+    "webpack-dev-server": "^4.15.0"
+  }
+}
