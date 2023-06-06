@@ -62,8 +62,8 @@ const saveButtonAddPopup = document.querySelector('.popup__save_type_mesto');
 
 const photoPopup = document.querySelector('.popup_type_photo');
 const closePhotoPopupButton = document.querySelector('.popup__close_photo');
-const elementPhotoPopup = document.querySelector('.popup__photo-img');
-const elementNamePhotoPopup = document.querySelector('.popup__photo-name');
+//const elementPhotoPopup = document.querySelector('.popup__photo-img'); убрала, потому что вызывается в модуле
+//const elementNamePhotoPopup = document.querySelector('.popup__photo-name'); убрала, потому что вызывается в модуле
 
 const openEditProfileButton = document.querySelector('.profile__edit');
 const nameAuthorProfile = document.querySelector('.profile__name');
