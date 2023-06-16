@@ -1,11 +1,11 @@
-.profile__avatar_edit {
+.profile__avatar-edit {
   display: block;
   position: absolute;
   border-radius: 50%;
   width: 120px;
   height: 120px;
   background-color: rgba(0, 0, 0, 0.8);
-  background-image: url("../../../../image/avatar_edit.svg");
+  background-image: url("../../../image/avatar_edit.svg");
   background-repeat: no-repeat;
   background-position: center;
   content: "";
@@ -14,6 +14,6 @@
   transition: opacity 0.2s ease-in-out;
 }
 
-.profile__avatar_edit:hover {
+.profile__avatar-edit:hover {
    opacity: 1;
 }

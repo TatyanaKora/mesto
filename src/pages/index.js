@@ -34,13 +34,13 @@ const saveButtonAddPopup = document.querySelector('.popup__save_type_mesto');
 
 const photoPopup = document.querySelector('.popup_type_photo');
 const closePhotoPopupButton = document.querySelector('.popup__close_photo');
-const deletePopup = document.querySelector('.popup__card-delete');
+const deletePopup = document.querySelector('.popup_type_card-delete');
 const deletePopupForm = deletePopup.querySelector('.popup__form');
 const avatarPopup = document.querySelector('.popup_type_avatar');
 const avatarPopupForm = avatarPopup.querySelector('.popup__form');
 
 const openEditProfileButton = document.querySelector('.profile__edit');
-const avatarButton = document.querySelector('.profile__avatar_edit');
+const avatarButton = document.querySelector('.profile__avatar-edit');
 const nameAuthorProfile = document.querySelector('.profile__name');
 const jobAuthorProfile = document.querySelector('.profile__job-text');
 const addButtonProfile = document.querySelector('.profile__add');
@@ -166,7 +166,7 @@ function renderCard(data, sectiont, position = "append") {
     userId
   );
 //формируем новую карточку для загрузки
-  const newCard = card.createNewCard();
+  const newCard = card.generateCard();
   section.addItem(newCard, position);
   section.renderItems();
 
@@ -237,11 +237,4 @@ avatarNewPopup.setEventListeners();
 avatarButton.addEventListener("click", () => {
   avatarNewPopup.open();
 });
-
-
-
-
-
-
-
 

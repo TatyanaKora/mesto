@@ -26,7 +26,10 @@ export default class Api {
   addApiCard({ name, link }) {
     return fetch(`https://mesto.nomoreparties.co/v1/cohort-68/cards`, {
       method: "POST",
-      headers: this._headers,
+      headers: {
+        authorization: "e30f2210-af8c-475a-a1c3-a51d57fda811",
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
         name,
         link,
@@ -72,7 +75,7 @@ export default class Api {
       },
       body: JSON.stringify({
         name: data.name,
-        about: data.job,
+        about: data.about,
         avatar: data.avatar,
       })
     })
