@@ -9,8 +9,13 @@
   background: transparent url('../../../image/delete.svg') no-repeat;
   cursor: pointer;
   opacity: 1;
+  visibility: visible;
 }
 
 .card__delete:hover {
   opacity: 0.6;
+}
+
+.card__delete_inactive {
+	visibility: hidden;
 }

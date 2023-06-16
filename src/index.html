@@ -15,6 +15,7 @@
     <section class="profile">
       <div class="profile__avatar-block">
         <img class="profile__avatar" src="<%=require("./image/avatar.svg")%>" alt="Ваша аватарка">
+		 <span class="profile__avatar_edit"></span>
       </div>
       <div class="profile__info">
         <div class="profile__names">
@@ -28,11 +29,38 @@
     <section class="photo-grid">
       <template class="card__template" id="template-card">
         <div class="card">
-          <button type="button" class="card__delete" aria-label="Удалить"></button>
-          <img alt="" class="card__image" src="#">
-          <div class="card__box">
-            <h2 class="card__name"></h2>
-            <button type="button" class="card__like" aria-label="Like"></button>
+          <button
+		  type="button"
+		  class="card__delete card__delete_run"
+		  aria-label="Удалить"
+		  >
+		  </button>
+          <img 
+		  alt="" 
+		  class="card__image"
+		  src="#"
+		  >
+          <div 
+		  class="card__box"
+		  >
+          <h2
+		  class="card__name"
+		  >
+		  </h2>
+			<div
+			class="card__like-box"
+			>
+            <button
+			type="button"
+			class="card__like"
+			aria-label="Like"
+			>
+			</button>
+			<p
+			class="card__like-counter"
+			>1
+			</p>
+			</div>
           </div>
         </div>
       </template>
@@ -85,6 +113,31 @@
       <img class="popup__photo-img" src="//:0">
       <p class="popup__photo-name"></p>
     </div>
-  </section>  
+  </section>
+  <section class="popup popup_type_avatar">
+            <div class="popup__container popup__container_type_avatar">
+                <button class="popup__close popup__close_avatar" 
+				type="button"></button>
+                                <form class="popup__form popup__form_type_avatar" id="avatarform" name="avatarform" novalidate>
+                    <fieldset class="popup__fieldset">
+					<h2 class="popup__title popup__title_type_avatar">Обновить аватар?</h2>
+                        <input class="popup__input popup__input_type_avatar" name= "avatar" id="avatar-input" required type="url" placeholder="Ссылка на аватар">
+                        <span class="popup__input-error" id="avatar-input-error"></span>
+                        <button class="popup__save popup__save_type_mesto" type="submit">Сохранить</button>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+		<section class="popup popup__card-delete">
+            <div class="popup__container popup__container_type_delete">
+			<form class="popup__form popup__form_type_delete" id="delete-card-form" " name="deleteform" novalidate>
+                    <fieldset class="popup__fieldset">
+              <h2 class="popup__title">Вы уверены?</h2>
+              <button class="popup__save popup__button-delete" type="button">Да</button>
+			  </fieldset>
+                </form>
+              <button class="popup__close popup__close_type_delete" type="button"></button>
+            </div>
+        </section>
 </body>
 </html>
